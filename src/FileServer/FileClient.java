@@ -6,7 +6,9 @@ import java.net.Socket;
 
 /**
  * Created by Sea on 4/2/16.
+ *
  */
+
 public class FileClient {
 
     public void ReceiveFile(String filename){

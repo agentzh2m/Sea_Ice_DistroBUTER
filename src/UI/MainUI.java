@@ -21,4 +21,14 @@ public class MainUI {
         stage.show();
     }
 
+    @FXML
+    public void serverBtn() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("ServerUI.fxml"));
+        Scene ss = new Scene(root);
+        Stage stage = (Stage) server.getScene().getWindow();
+        stage.setScene(ss);
+        stage.setResizable(false);
+        stage.show();
+    }
+
 }

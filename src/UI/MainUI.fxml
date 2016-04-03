@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainUI">
    <children>
-      <Button fx:id="server" layoutX="139.0" layoutY="173.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="131.0" text="Server">
+      <Button fx:id="server" layoutX="139.0" layoutY="173.0" mnemonicParsing="false" onAction="#serverBtn" prefHeight="41.0" prefWidth="131.0" text="Server">
          <font>
             <Font size="29.0" />
          </font></Button>

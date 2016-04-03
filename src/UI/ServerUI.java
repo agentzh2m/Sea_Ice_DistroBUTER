@@ -1,30 +1,21 @@
-package UI;
+package Server;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
-/**
- * Created by nattakarnklongyut on 4/3/16.
- */
 public class ServerUI {
-
     @FXML
     TableColumn IPTableView;
 
     @FXML
-    Button SearchBtn;
+    Button SearchBtn, StartBtn;
 
     @FXML
-    Button StartBtn;
-
-    @FXML
-    Text start_text;
-
-    public ServerUI() {
-
-    }
+    TextArea ProgressArea;
 
     @FXML
     public void SearchBtnAction() {
@@ -32,7 +23,9 @@ public class ServerUI {
     }
 
     public void StartBtnAction() {
-        this.start_text.setText("Start!!");
+
+
     }
+
 
 }

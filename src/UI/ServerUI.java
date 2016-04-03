@@ -1,4 +1,4 @@
-package Server;
+package UI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,13 +9,17 @@ import javafx.scene.text.Text;
 
 public class ServerUI {
     @FXML
-    TableColumn IPTableView;
+    TableView ProgressTable;
+
+    @FXML
+    TableColumn IPColumn, ProgressPercentColumn;
 
     @FXML
     Button SearchBtn, StartBtn;
 
     @FXML
-    TextArea ProgressArea;
+    TextArea ProgressArea; // using appendText()
+                           // ProgressArea.appendText("\n" + message);
 
     @FXML
     public void SearchBtnAction() {

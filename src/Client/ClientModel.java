@@ -18,6 +18,7 @@ import java.util.Observer;
 public class ClientModel {
     public static float currentProgress;
     public static File clientTorrentFile;
+    public static String filename;
     public static InetSocketAddress serverUrl;
     public ClientModel(){
         //open listen server for the client stable HTTPConnection
@@ -54,6 +55,15 @@ public class ClientModel {
         public void handle(HttpExchange exchange){
             System.out.println("Start to Download torrent from server");
             try {
+                //get file name from server
+                HttpURLConnection fcon = (HttpURLConnection) new URL("http://"+ serverUrl.getHostString() + "8888/getFileName").openConnection();
+                if(fcon.getResponseCode() == 200){
+                    System.out.println("retrieve filename");
+                    InputStreamReader isr = new InputStreamReader(fcon.getInputStream());
+                    BufferedReader br = new BufferedReader(isr);
+                    filename = br.readLine();
+                    System.out.println("Retreive filename: " + filename);
+                }
                 //Downloading file from server
                 HttpURLConnection con = (HttpURLConnection) new URL("http://"+serverUrl.getHostString()+":8888/downloadTorrent").openConnection();
                 if (con.getResponseCode() == 200){

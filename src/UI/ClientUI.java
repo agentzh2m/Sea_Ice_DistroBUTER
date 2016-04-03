@@ -1,11 +1,14 @@
 package UI;
 
+import Client.ClientModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -26,15 +29,18 @@ public class ClientUI {
 
     @FXML
     public void startbtnaction(){
-
+        ClientModel cm = new ClientModel();
         /* make the text color blue*/
         textlst = new ArrayList<>(Arrays.asList(filename, data_recv, total_data, percent, client_ip));
         for (int i=0; i<textlst.size(); i++){
             textlst.get(i).setFill(Color.web("#0076a3"));
         }
-
-        client_ip.setText("127.0.0.0.1");
-        filename.setText("Batman vs Superman Super HD.mp4");
+        try {
+            client_ip.setText(InetAddress.getLocalHost().getHostAddress());
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        filename.setText(ClientModel.filename);
         data_recv.setText("200 MB");
         total_data.setText("4.2 GB");
         percent.setText("13%");

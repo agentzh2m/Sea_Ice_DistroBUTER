@@ -21,8 +21,10 @@ import java.util.concurrent.Executors;
 
 public class ServerModel {
     public static File myTorrentFile = new File("distro.torrent");
+    public static File mySentFile;
     Map<String, TrackedPeer> trackedClient;
     public ServerModel(List<String> clientLst, File distrofile){
+        mySentFile = distrofile;
         InetSocketAddress torrentCon = null;
         try {
             torrentCon = new InetSocketAddress(InetAddress.getLocalHost(), 4444);
@@ -50,6 +52,7 @@ public class ServerModel {
                 HttpServer listenServer = HttpServer.create();
                 listenServer.bind(new InetSocketAddress(InetAddress.getLocalHost(),8888), 0);
                 System.out.println("Server listen on: " + listenServer.getAddress());
+                listenServer.createContext("/getFileName", new getTorrentHandler());
                 listenServer.createContext("/downloadTorrent", new getTorrentHandler());
                 listenServer.start();
                 lsttor.addAll(tracker.getTrackedTorrents());
@@ -140,6 +143,20 @@ public class ServerModel {
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    static class getFileName implements HttpHandler{
+        @Override
+        public void handle(HttpExchange exchange){
+            String msg = mySentFile.getName();
+            try {
+                exchange.sendResponseHeaders(200, msg.length() );
+                OutputStream os = exchange.getResponseBody();
+                os.write(msg.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

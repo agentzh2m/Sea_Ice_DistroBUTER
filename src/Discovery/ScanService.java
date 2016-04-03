@@ -1,4 +1,4 @@
-package sample;
+package Discovery;
 import java.io.*;
 /**
  * Created by Ice on 1/4/2559.
@@ -16,7 +16,7 @@ public class ScanService implements Runnable{
 
 //        File here = new File(".");
 //        System.out.println(here.getAbsolutePath());
-        File file = new File("./src/sample/raw_ip.txt");
+        File file = new File("./src/Discovery/raw_ip.txt");
 //        System.out.println(file.exists());
         if (file.exists() == true) {
             file.delete();
@@ -38,7 +38,7 @@ public class ScanService implements Runnable{
 //            ProcessBuilder builder = new ProcessBuilder(
 //                    "cmd.exe", "/c", "cd \"C:\\Program Files\\Microsoft SQL Server\" && dir");
                 ProcessBuilder builder = new ProcessBuilder(
-                    "cmd.exe", "/c", "cd ./src/sample/ && dns-sd -B _http._tcp >> raw_ip.txt");
+                    "cmd.exe", "/c", "cd ./src/Discovery/ && dns-sd -B _http._tcp >> raw_ip.txt");
                 builder.redirectErrorStream(true);
                 Process p = builder.start();
                 BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));

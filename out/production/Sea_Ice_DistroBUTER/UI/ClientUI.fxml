@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ClientUI">
+   <children>
+      <Button fx:id="start" layoutX="498.0" layoutY="23.0" mnemonicParsing="false" onAction="#startbtnaction" prefHeight="27.0" prefWidth="77.0" text="Start" />
+      <Text fx:id="filename" fill="#000000b2" layoutX="121.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="466.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="data_recv" fill="#000000e0" layoutX="147.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="total_data" fill="#000000e0" layoutX="121.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="percent" fill="#000000e0" layoutX="129.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="38.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File name:" wrappingWidth="121.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="38.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data received:" wrappingWidth="109.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="38.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total data:" wrappingWidth="83.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="38.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Percentage:" wrappingWidth="91.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="textArea" layoutX="38.0" layoutY="215.0" prefHeight="155.0" prefWidth="521.0" />
+      <Text layoutX="38.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client's IP Address:" wrappingWidth="138.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="client_ip" fill="#000000e0" layoutX="185.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="282.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

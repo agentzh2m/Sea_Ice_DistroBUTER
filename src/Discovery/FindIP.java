@@ -1,4 +1,4 @@
-package sample;
+package Discovery;
 
 import sun.misc.IOUtils;
 
@@ -32,7 +32,7 @@ public class FindIP implements Runnable{
 //            BufferedReader br = new BufferedReader(new FileReader("D:\\Users\\Ice\\Desktop\\Discover\\raw_ip.txt"));
 //            File here = new File(".");
 //            System.out.println(here.getAbsolutePath());
-            BufferedReader br = new BufferedReader(new FileReader("./src/sample/raw_ip.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("./src/Discovery/raw_ip.txt"));
             try {
 //                StringBuilder sb = new StringBuilder();
                 String line = br.readLine();

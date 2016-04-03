@@ -1,0 +1,6 @@
+Browsing for _http._tcp
+Timestamp     A/R Flags if Domain                    Service Type              Instance Name
+ 2:16:03.125  Add     3  3 local.                    _http._tcp.               iMac5
+ 2:16:03.125  Add     3  3 local.                    _http._tcp.               iMac1
+ 2:16:03.125  Add     3  3 local.                    _http._tcp.               Ice
+ 2:16:03.125  Add     2  3 local.                    _http._tcp.               iMac2

@@ -9,5 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.turn:ttorrent-core:1.5" level="project" />
     <orderEntry type="library" name="com.turn:ttorrent-cli:1.5" level="project" />
+    <orderEntry type="library" name="org.kie.modules:org-apache-commons-exec:6.1.0.Final" level="project" />
+    <orderEntry type="library" name="org.apache.directory.studio:org.apache.commons.io:2.4" level="project" />
   </component>
 </module>

@@ -1,6 +1,5 @@
 package All;
 
-import Client.ClientModel;
 //import com.sun.codemodel.internal.fmt.JTextFile;
 //import com.sun.glass.ui.Accessible;
 //import javafx.event.EventHandler;
@@ -38,8 +37,16 @@ public class ClientUI {
 
     ArrayList<Text> textlst;
 
+    public static String name;
+
     @FXML
     public void startbtnaction(){
+
+        RunService rs = new RunService();
+        Thread C1 = new Thread(rs);
+        C1.start();
+
+
         ClientModel cm = new ClientModel();
 
         /* make the text color blue*/
@@ -54,10 +61,9 @@ public class ClientUI {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        filename.setText(ClientModel.filename);
-        data_recv.setText("200 MB");
-        total_data.setText("4.2 GB");
-        percent.setText("13%");
+
+        Thread th = new Thread(new UpdateStatus());
+        th.start();
     }
 
     /* enter the client's name */
@@ -71,13 +77,28 @@ public class ClientUI {
             alert.setContentText("You have already enter your name.");
             alert.show();
         }else {
+            name = clientName_field.getText();
             client_name.setText(clientName_field.getText());
             client_name.setFill(Color.web("#0076a3"));
             clientName_field.clear();
         }
+    }
 
-
-
+    public class UpdateStatus implements Runnable{
+        @Override
+        public void run(){
+            while (true){
+                filename.setText(ClientModel.filename);
+                data_recv.setText(Long.toString(ClientModel.datarcv));
+                total_data.setText(Long.toString(ClientModel.totalFileSize));
+                percent.setText(Float.toString(ClientModel.currentProgress) + "%");
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }

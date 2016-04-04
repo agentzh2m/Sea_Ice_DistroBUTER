@@ -11,12 +11,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ServerUI {
     static ArrayList<String> all_ip_list;
+    static ByteArrayOutputStream outputStream = null;
 
     public static ObservableList<IP_List> ipList;
 
@@ -37,23 +39,17 @@ public class ServerUI {
     public void SearchBtnAction() throws InterruptedException{
         ipList = FXCollections.observableArrayList();
 
-        // Browse for bonjour service
         ScanService discover = new ScanService("Thread 1");
-        Thread D1 = new Thread(discover);
-        D1.start();
-        Thread.sleep(500);
-        D1.interrupt();
+        discover.run();
 
-        // Find all ip
-        FindIP name = new FindIP("Thread 2");
-        Thread D2 = new Thread(name);
-        D2.start();
-        D2.sleep(500);
-        D2.interrupt();
+        FindIP name = new FindIP();
+        name.run();
 
-        System.out.println(all_ip_list);
+//        System.out.println(all_ip_list);
 
         for (int i = 0; i < all_ip_list.size(); i++) {
+            ProgressArea.appendText(all_ip_list.get(i));
+            ProgressArea.appendText(System.lineSeparator());
             ipList.add(new IP_List(all_ip_list.get(i), "0"));
         }
 
@@ -101,9 +97,10 @@ public class ServerUI {
     }
 
     public void StartBtnAction() {
-        List<String> clientLst = new ArrayList<>();
-        if(cf_field.getText().length() < 1) {
-            ServerModel sm = new ServerModel(clientLst, new File(cf_field.getText()));
+        if(cf_field.getText().length() > 1) {
+            ServerModel sm = new ServerModel(all_ip_list, new File(cf_field.getText()));
+            Thread th = new Thread(new UpdateServStatus());
+            th.start();
         }else {
             //insert error popup box
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -112,6 +109,7 @@ public class ServerUI {
             alert.setContentText("No file choosen!!!");
             alert.show();
         }
+
     }
 
     public void choose_file(){
@@ -125,7 +123,27 @@ public class ServerUI {
         }
     }
 
-//    FileChooser fc = new FileChooser();
+    public class UpdateServStatus implements Runnable {
+        @Override
+        public void run(){
+            while (true){
+                ipList.clear();
+                for(String st : ServerModel.trackedClient.keySet()){
+                    String address = ServerModel.trackedClient.get(st).getIp();
+                    long Downloaded = ServerModel.trackedClient.get(st).getDownloaded();
+                    System.out.println(address);
+                    System.out.println(Downloaded);
+                    ipList.add(new IP_List(address, Long.toString(Downloaded / ServerModel.mySentFile.length())));
+                }
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 
 
 

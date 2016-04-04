@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 public class ServerModel {
     public static File myTorrentFile = new File("distro.torrent");
     public static File mySentFile;
-    Map<String, TrackedPeer> trackedClient;
+    public static Map<String, TrackedPeer> trackedClient;
     public ServerModel(List<String> clientLst, File distrofile){
         mySentFile = distrofile;
         InetSocketAddress torrentCon = null;
@@ -57,10 +57,14 @@ public class ServerModel {
                 listenServer.start();
                 lsttor.addAll(tracker.getTrackedTorrents());
                 //iterating over track torrent
-                for(TrackedTorrent tor: lsttor){
-                    trackedClient.putAll(tor.getPeers());
+
+                while (true){
+                    for(TrackedTorrent tor: lsttor){
+                        trackedClient.putAll(tor.getPeers());
+                    }
+                    Thread.sleep(2000);
                 }
-                System.out.println("Current client state: " + client.getState());
+
 
             } catch (Exception e) {
                 e.printStackTrace();

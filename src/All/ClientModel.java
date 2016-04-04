@@ -1,4 +1,4 @@
-package Client;
+package All;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -16,9 +16,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class ClientModel {
-    public static float currentProgress;
+    public static float currentProgress = 0;
+    public static long datarcv = 0;
+    public static long totalFileSize = 0;
     public static File clientTorrentFile;
-    public static String filename;
+    public static String filename = "N/A";
     public static InetSocketAddress serverUrl;
     public ClientModel(){
         //open listen server for the client stable HTTPConnection
@@ -106,6 +108,8 @@ public class ClientModel {
                         //client can tracker their download progress
                         System.out.println("Current progress: " + progress);
                         currentProgress = progress;
+                        datarcv = client.getTorrent().getDownloaded();
+                        totalFileSize = client.getTorrent().getSize();
                     }
                 });
 

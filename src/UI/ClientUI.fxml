@@ -8,54 +8,66 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ClientUI">
    <children>
-      <Button fx:id="start" layoutX="498.0" layoutY="23.0" mnemonicParsing="false" onAction="#startbtnaction" prefHeight="27.0" prefWidth="77.0" text="Start" />
-      <Text fx:id="filename" fill="#000000b2" layoutX="121.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="466.0">
+      <Button fx:id="start" layoutX="500.0" layoutY="27.0" mnemonicParsing="false" onAction="#startbtnaction" prefHeight="36.0" prefWidth="77.0" text="Start" />
+      <Text fx:id="filename" fill="#000000b2" layoutX="121.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="466.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="data_recv" fill="#000000e0" layoutX="147.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
+      <Text fx:id="data_recv" fill="#000000e0" layoutX="147.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="total_data" fill="#000000e0" layoutX="121.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
+      <Text fx:id="total_data" fill="#000000e0" layoutX="121.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="percent" fill="#000000e0" layoutX="129.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
+      <Text fx:id="percent" fill="#000000e0" layoutX="129.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="371.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="38.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File name:" wrappingWidth="121.0">
+      <Text layoutX="38.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File name:" wrappingWidth="121.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="38.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data received:" wrappingWidth="109.0">
+      <Text layoutX="38.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data received:" wrappingWidth="109.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="38.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total data:" wrappingWidth="83.0">
+      <Text layoutX="38.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total data:" wrappingWidth="83.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="38.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Percentage:" wrappingWidth="91.0">
+      <Text layoutX="38.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Percentage:" wrappingWidth="91.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <TextArea fx:id="textArea" layoutX="38.0" layoutY="215.0" prefHeight="155.0" prefWidth="521.0" />
-      <Text layoutX="38.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client's IP Address:" wrappingWidth="138.0">
+      <TextArea fx:id="textArea" layoutX="40.0" layoutY="231.0" prefHeight="155.0" prefWidth="521.0" />
+      <Text layoutX="38.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client's IP Address:" wrappingWidth="138.0">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="client_ip" fill="#000000e0" layoutX="185.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="282.0">
+      <Text fx:id="client_ip" fill="#000000e0" layoutX="185.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="282.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="clientName_field" layoutX="38.0" layoutY="31.0" prefHeight="27.0" prefWidth="293.0" />
+      <Button fx:id="enter_name" layoutX="340.0" layoutY="31.0" mnemonicParsing="false" onAction="#enter_name" onKeyPressed="#enter_name" text="Send" />
+      <Text fx:id="client_name" fill="#000000e0" layoutX="147.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="282.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="38.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client's name:" wrappingWidth="138.0">
          <font>
             <Font size="15.0" />
          </font>

@@ -19,6 +19,8 @@
       </TableView>
       <Button fx:id="SearchBtn" layoutX="486.0" layoutY="62.0" mnemonicParsing="false" onAction="#SearchBtnAction" text="Search" />
       <Button fx:id="StartBtn" layoutX="492.0" layoutY="115.0" mnemonicParsing="false" onAction="#StartBtnAction" text="Start" />
-      <TextArea fx:id="ProgressArea" layoutX="44.0" layoutY="195.0" prefHeight="182.0" prefWidth="388.0" />
+      <TextArea fx:id="ProgressArea" layoutX="44.0" layoutY="195.0" prefHeight="105.0" prefWidth="388.0" />
+      <Button fx:id="choose_file" layoutX="44.0" layoutY="319.0" mnemonicParsing="false" onAction="#choose_file" prefHeight="33.0" prefWidth="87.0" text="Choose file" />
+      <TextArea fx:id="cf_field" layoutX="138.0" layoutY="319.0" prefHeight="41.0" prefWidth="412.0" />
    </children>
 </Pane>

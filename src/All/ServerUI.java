@@ -54,10 +54,12 @@ public class ServerUI {
         System.out.println(all_ip_list);
 
         for (int i = 0; i < all_ip_list.size(); i++) {
-            ipList.add(new IP_List((String)all_ip_list[i]));
+            ipList.add(new IP_List(all_ip_list.get(i), "0"));
         }
 
         IPColumn.setCellValueFactory(new PropertyValueFactory("IPadr"));
+        ProgressPercentColumn.setCellValueFactory(new PropertyValueFactory("percent"));
+        ProgressTable.setItems(ipList);
 
 
     }
